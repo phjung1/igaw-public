@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace igaw_public
+namespace igawPublic
 {
     public class Startup
     {
@@ -28,6 +28,7 @@ namespace igaw_public
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseMvc();
 
             app.Run(async (context) =>
             {

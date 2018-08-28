@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "igaw-public", "igaw-public\igaw-public.csproj", "{56280CF5-32C1-4ED6-AE48-5ED7276A938F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "igawPublic", "igaw-public\igawPublic.csproj", "{56280CF5-32C1-4ED6-AE48-5ED7276A938F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -5,6 +5,166 @@
     <title></title>
 </head>
 <body>
-    index page
+    <style>
+        .vertical-reqMenu {
+            width: 500px;
+            height: 200px;
+            overflow-y: auto;
+            float: right;
+            position: relative;
+            top: 15px;
+        }
+
+            .vertical-reqMenu a {
+                background-color: #eee; /* Grey background color */
+                color: black; /* Black text color */
+                display: block; /* Make the links appear below each other */
+                padding: 12px; /* Add some padding */
+                text-decoration: none; /* Remove underline from links */
+            }
+
+                .vertical-reqMenu a:hover {
+                    background-color: #ccc; /* Dark grey background on mouse-over */
+                }
+
+                .vertical-reqMenu a.active {
+                    background-color: #0026ff; /* Add a green color to the "active/current" link */
+                    color: white;
+                }
+
+        .vertical-resMenu {
+            float: right;
+            position: relative;
+            top: 15px;
+            width: 500px;
+            height: 200px;
+            overflow-y: auto;
+        }
+
+            .vertical-resMenu a {
+                background-color: #eee; /* Grey background color */
+                color: black; /* Black text color */
+                display: block; /* Make the links appear below each other */
+                padding: 12px; /* Add some padding */
+                text-decoration: none; /* Remove underline from links */
+            }
+
+                .vertical-resMenu a:hover {
+                    background-color: #ccc; /* Dark grey background on mouse-over */
+                }
+
+                .vertical-resMenu a.active {
+                    background-color: #4CAF50; /* Add a green color to the "active/current" link */
+                    color: white;
+                }
+    </style>
+
+    <script>
+        var reqFlag = false;
+
+        var timer = clearInterval();
+
+
+        function randomRange(n1, n2) {
+            return Math.floor((Math.random() * (n2 - n1 + 1)) + n1);
+        }
+
+
+        function myTimer() {
+            var radNumber = randomRange(1, 4);
+            console.log(radNumber);
+
+            switch (radNumber) {
+                case 1:
+                    reqGet();
+                    break;
+                case 2:
+                    reqPost();
+                    break;
+                case 3:
+                    reqPut();
+                    break;
+                case 4:
+                    reqDelete();
+                    break;
+            }
+
+        }
+
+
+        function reqGet() {
+
+        }
+
+        function reqPut() {
+
+        }
+
+        function reqDelete(){
+
+        }
+
+        function reqPost() {
+
+        }
+
+        function btnClick() {
+            if (reqFlag) {
+
+                reqFlag = false;
+                document.getElementById("btnStart").disabled = false;
+                document.getElementById("btnStop").disabled = true;
+                clearInterval(timer)
+
+            } else {
+
+                reqFlag = true;
+
+
+                var e = document.getElementById("reqPerSeq");
+                var reqPerSeq =(1000/e.options[e.selectedIndex].value);
+
+                document.getElementById("btnStart").disabled = true;
+                document.getElementById("btnStop").disabled = false;
+                timer = setInterval(myTimer, reqPerSeq);
+
+
+            }
+
+
+
+            
+        }
+
+
+
+    </script>
+    <h1>AWS Test</h1>
+
+
+    <div>초당 요청횟수를 지정한 후 Start버튼을 누르면 요청이 시작됩니다. </div>
+    <div>요청내용과 처리결과가 각 탭에 표시 됩니다.</div>
+    <div>모든 요청은 무작위로 보내집니다.</div>
+
+    <select id="reqPerSeq">
+        <option value="1">1</option>
+        <option value="10">10</option>
+        <option value="100">100</option>
+        <option value="1000">1000</option>
+    </select>
+    <button type="button" id="btnStart" onclick="btnClick()">Start</button>
+    <button type="button" id="btnStop" onclick="btnClick()" disabled>Stop</button>
+
+
+    <div class="vertical-reqMenu">
+        <a href="#" class="active">Request</a>
+
+    </div>
+
+
+    <div class="vertical-resMenu">
+        <a href="#" class="active">Response</a>
+
+    </div>
 </body>
 </html>
